@@ -145,7 +145,7 @@ export default {
             this.boo=!this.boo;
         },
         changeall(a){
-            var x;
+            var x=0;
             this.list[a].chooseall=!this.list[a].chooseall;
             for(var i=0;i<this.list[a].book.length;i++){
                 if(this.list[a].chooseall){
@@ -154,22 +154,22 @@ export default {
                     this.total=parseInt(this.total)/100
                 }
                 if(!this.list[a].chooseall&&this.list[a].book[i].chooseone){
-                    this.total=parseInt(this.total*100)+Number(this.list[a].book[i].price*100);
+                    this.total=parseInt(this.total*100)+parseInt(this.list[a].book[i].price*100);
                     this.totalcount=this.totalcount+1;
                     this.total=parseInt(this.total)/100
                 }
                 this.list[a].book[i].chooseone=this.list[a].chooseall;
             }
             for(var j=0;j<this.list.length;j++){
-                if(this.list[j].chooseall){x=true;}else{
-                    x=false;
-                }
+                if(!this.list[j].chooseall){x++;}
             }
-            this.totalchoose=x;
+            if(x==this.list.length){
+                this.totalchoose=false;
+            }else{this.totalchoose=true;}
         },
         changeone(x,y){
             var count=0;
-            var x;
+            var z=0;
             this.list[x].book[y].chooseone=!this.list[x].book[y].chooseone;
             if(this.list[x].book[y].chooseone){
                     this.total=parseInt(this.total*100)-parseInt(this.list[x].book[y].price*100);
@@ -191,12 +191,11 @@ export default {
                 this.list[x].chooseall=true;
             }
             for(var j=0;j<this.list.length;j++){
-                if(this.list[j].chooseall){x=true;}else{
-                    x=false;
-                }
+                if(!this.list[j].chooseall){z++;}
             }
-            
-            this.totalchoose=x;
+            if(z==this.list.length){
+                this.totalchoose=false;
+            }else{this.totalchoose=true;}       
         },
         choosetotal(){
             this.total=0;

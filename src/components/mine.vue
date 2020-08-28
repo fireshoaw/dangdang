@@ -36,8 +36,11 @@
             </li>
         </ul>
         <div id="vip">
-            <div id="vip_left"><img src="../assets/images/mine/02vip.png" alt="">会员中心</div>
-            <div id="vip_right">></div>
+            <p>
+                <img src="../assets/images/mine/02vip.png" alt="">
+                会员中心
+                <img src="../assets/images/mine/right.png" alt="">
+            </p>
         </div>
         <ul id="section">
             <li v-for="(item,index) in section">
@@ -252,32 +255,25 @@ export default {
         width: 20%;
     }
     #vip{
-        padding-bottom: 14%;
-    }
-    #vip_left{
-        float: left;
         position: relative;
-        padding: 2.52% 0%;
-        padding-left: 10%;
-        background-color: white;
-        width: 39%;
     }
-    #vip_left img{
-        font-weight: normal;
+    #vip p{
+        width: 100%;
+        background-color: white;
+        padding: 2.5% 0%;
+        padding-left: 8%;
+        margin: 3% 0%;
+    }
+    #vip img:nth-of-type(1){
+        width: 6%;
         position: absolute;
-        width: 12%;
-        left: 2%;
+        left: 1%;
+
     }
-    #vip_right{
-        width: 45%;
-        float: right;
-        padding-right: 6%;
-        padding-bottom: 4.1%;
-        font-size: 70%;
-        color: #999;
-        background-color: white;
-        text-align: right;
-        font-size: 120%;
+    #vip img:nth-of-type(2){
+        position: absolute;
+        width: 2%;
+        right: 2%
     }
     #section{
         position: relative;
